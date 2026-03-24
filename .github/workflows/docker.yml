@@ -9,6 +9,11 @@ on:
         description: Image version tag (x.y.z)
         required: true
         type: string
+      publish_latest:
+        description: Also push the latest tag
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   docker:
@@ -42,12 +47,21 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Prepare image tags
+        id: image_tags
+        run: |
+          tags="${{ secrets.DOCKERHUB_USERNAME }}/axo-drive:${{ inputs.version }}"
+          if [ "${{ inputs.publish_latest }}" = "true" ]; then
+            tags="$tags,${{ secrets.DOCKERHUB_USERNAME }}/axo-drive:latest"
+          fi
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/axo-drive:${{ inputs.version }}
+          tags: ${{ steps.image_tags.outputs.tags }}
 
       - name: Sync Docker Hub README
         uses: peter-evans/dockerhub-description@v4
