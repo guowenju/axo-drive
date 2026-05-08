@@ -1,4 +1,4 @@
-FROM node:20-bullseye-slim AS frontend-builder
+FROM node:24-trixie-slim  AS frontend-builder
 
 WORKDIR /app
 COPY frontend/package.json frontend/pnpm-lock.yaml ./frontend/
@@ -7,7 +7,7 @@ RUN cd frontend && pnpm install --frozen-lockfile
 COPY frontend ./frontend
 RUN cd frontend && pnpm build
 
-FROM rust:1.92-bullseye AS rust-builder
+FROM rust:1.95.0-trixie AS rust-builder
 
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -21,7 +21,7 @@ COPY frontend ./frontend
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 RUN cargo build --release
 
-FROM debian:bullseye-slim
+FROM debian:trixie-slim
 
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
