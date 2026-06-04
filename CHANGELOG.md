@@ -2,6 +2,13 @@
 
 格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，并遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [0.1.2] - 2026-06-04
+
+### 变更
+
+- 前端：重构时间格式化逻辑，由原先的 UTC 时间展示改为根据浏览器本地时区自动进行转换展示。
+- 后端：将列表 API 的文件修改时间输出格式转为 ISO-8601 UTC 标准，与服务器/容器的系统时区环境配置（如 TZ/tzdata）解耦。
+
 ## [0.1.1] - 2026-05-12
 
 ### 新增
@@ -77,6 +84,7 @@
 - HTTP/HTTPS 双端口启动，缺省自签名证书。
 - Dockerfile 与构建脚本支持发布打包。
 
+[0.1.2]: https://github.com/sfwwslm/axo-drive/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/sfwwslm/axo-drive/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/sfwwslm/axo-drive/compare/0.1.0-alpha.3...0.1.0
 [0.1.0-alpha.3]: https://github.com/sfwwslm/axo-drive/compare/0.1.0-alpha.2...0.1.0-alpha.3
