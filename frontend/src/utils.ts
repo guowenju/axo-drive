@@ -16,15 +16,22 @@ export const formatBytes = (value: number) => {
   return `${number.toFixed(1)} ${units[index]}`;
 };
 
-// 统一格式化 UTC 时间（YYYY-MM-DD HH:mm:ss）。
-export const formatUtcTimestamp = (date: Date) => {
+// 统一格式化本地时间（YYYY-MM-DD HH:mm:ss）。
+export const formatLocalTimestamp = (
+  dateOrStr: Date | string | null | undefined,
+) => {
+  if (!dateOrStr) return "";
+  const date = typeof dateOrStr === "string" ? new Date(dateOrStr) : dateOrStr;
+  if (isNaN(date.getTime()))
+    return typeof dateOrStr === "string" ? dateOrStr : "";
+
   const pad = (value: number) => value.toString().padStart(2, "0");
-  const year = date.getUTCFullYear();
-  const month = pad(date.getUTCMonth() + 1);
-  const day = pad(date.getUTCDate());
-  const hours = pad(date.getUTCHours());
-  const minutes = pad(date.getUTCMinutes());
-  const seconds = pad(date.getUTCSeconds());
+  const year = date.getFullYear();
+  const month = pad(date.getMonth() + 1);
+  const day = pad(date.getDate());
+  const hours = pad(date.getHours());
+  const minutes = pad(date.getMinutes());
+  const seconds = pad(date.getSeconds());
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
 

@@ -180,7 +180,7 @@ impl Storage {
 fn format_timestamp(duration: Duration) -> String {
     let timestamp = UNIX_EPOCH + duration;
     let datetime: DateTime<Utc> = timestamp.into();
-    datetime.format("%Y-%m-%d %H:%M:%S").to_string()
+    datetime.format("%Y-%m-%dT%H:%M:%SZ").to_string()
 }
 
 /// 存储操作可能返回的错误类型。

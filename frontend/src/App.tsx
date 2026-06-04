@@ -33,7 +33,7 @@ import {
   isAbortError,
   isImageFile,
   isVideoFile,
-  formatUtcTimestamp,
+  formatLocalTimestamp,
   joinPath,
 } from "./utils";
 
@@ -130,8 +130,12 @@ function App() {
           );
         }
         const data = (await response.json()) as FileEntry[];
-        setEntries(data);
-        return data;
+        const formattedData = data.map((entry) => ({
+          ...entry,
+          modified: formatLocalTimestamp(entry.modified),
+        }));
+        setEntries(formattedData);
+        return formattedData;
       } catch (err) {
         setError(err instanceof Error ? err.message : t("readDirFailed"));
         return null;
@@ -420,8 +424,8 @@ function App() {
               | string
               | undefined;
             const modified = headerValue
-              ? formatUtcTimestamp(new Date(headerValue))
-              : formatUtcTimestamp(new Date());
+              ? formatLocalTimestamp(new Date(headerValue))
+              : formatLocalTimestamp(new Date());
             upsertEntry({
               name: file.name,
               path: targetPath,
@@ -655,7 +659,7 @@ function App() {
           path,
           is_dir: true,
           size: 0,
-          modified: formatUtcTimestamp(new Date()),
+          modified: formatLocalTimestamp(new Date()),
         });
       }
     } catch (err) {
