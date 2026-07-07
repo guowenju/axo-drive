@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMAGE_NAME="${1:-sfwwslm/axo-drive}"
+IMAGE_NAME="${1:-guowenju/axo-drive}"
 IMAGE_TAG="${2:-}"
 DOCKERFILE_PATH="${DOCKERFILE_PATH:-Dockerfile}"
 

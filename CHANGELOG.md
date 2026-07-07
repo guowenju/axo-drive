@@ -84,10 +84,10 @@
 - HTTP/HTTPS 双端口启动，缺省自签名证书。
 - Dockerfile 与构建脚本支持发布打包。
 
-[0.1.2]: https://github.com/sfwwslm/axo-drive/compare/0.1.1...0.1.2
-[0.1.1]: https://github.com/sfwwslm/axo-drive/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/sfwwslm/axo-drive/compare/0.1.0-alpha.3...0.1.0
-[0.1.0-alpha.3]: https://github.com/sfwwslm/axo-drive/compare/0.1.0-alpha.2...0.1.0-alpha.3
-[0.1.0-alpha.2]: https://github.com/sfwwslm/axo-drive/compare/0.1.0-alpha.1...0.1.0-alpha.2
-[0.1.0-alpha.1]: https://github.com/sfwwslm/axo-drive/compare/0.0.1...0.1.0-alpha.1
-[0.0.1]: https://github.com/sfwwslm/axo-drive/releases/tag/0.0.1
+[0.1.2]: https://github.com/guowenju/axo-drive/compare/0.1.1...0.1.2
+[0.1.1]: https://github.com/guowenju/axo-drive/compare/0.1.0...0.1.1
+[0.1.0]: https://github.com/guowenju/axo-drive/compare/0.1.0-alpha.3...0.1.0
+[0.1.0-alpha.3]: https://github.com/guowenju/axo-drive/compare/0.1.0-alpha.2...0.1.0-alpha.3
+[0.1.0-alpha.2]: https://github.com/guowenju/axo-drive/compare/0.1.0-alpha.1...0.1.0-alpha.2
+[0.1.0-alpha.1]: https://github.com/guowenju/axo-drive/compare/0.0.1...0.1.0-alpha.1
+[0.0.1]: https://github.com/guowenju/axo-drive/releases/tag/0.0.1

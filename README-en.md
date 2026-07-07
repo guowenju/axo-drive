@@ -153,7 +153,7 @@ Or specify image name/tag:
 ```yaml
 services:
   axo-drive:
-    image: sfwwslm/axo-drive:latest
+    image: guowenju/axo-drive:latest
     container_name: axo-drive
     ports:
       - "5005:5005"

@@ -4,8 +4,8 @@
 
 [English](README-en.md)
 
-![bg](https://raw.githubusercontent.com/sfwwslm/axo-drive/main/docs/login.png)
-![bg](https://raw.githubusercontent.com/sfwwslm/axo-drive/main/docs/files.png)
+![bg](https://raw.githubusercontent.com/guowenju/axo-drive/main/docs/login.png)
+![bg](https://raw.githubusercontent.com/guowenju/axo-drive/main/docs/files.png)
 
 ## 功能概览
 
@@ -156,7 +156,7 @@ cargo run -- -b 0.0.0.0 -p 8080 -P 8443 -s /data/axo-drive --auth-user axo --aut
 ```yaml
 services:
   axo-drive:
-    image: sfwwslm/axo-drive:latest
+    image: guowenju/axo-drive:latest
     container_name: axo-drive
     ports:
       - "5005:5005"
